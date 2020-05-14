@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>123877492982-3b10c65t2emkn3opag4r9jl4qa3901lt.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.123877492982-3b10c65t2emkn3opag4r9jl4qa3901lt</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCN6sWQMCHoqjYT3XWPWxk55ZL3AIq15uw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>123877492982</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Zakirov.Diplom-beta</string>
+	<key>PROJECT_ID</key>
+	<string>diplomiu6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>diplomiu6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:123877492982:ios:ada7f0ed1b6e07d21644d7</string>
+	<key>DATABASE_URL</key>
+	<string>https://diplomiu6.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D3B81A42468A20E003B4A5B /* SingleCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B81A32468A20E003B4A5B /* SingleCarViewController.swift */; };
+		7D3B81A6246B38F3003B4A5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B81A5246B38F3003B4A5B /* GoogleService-Info.plist */; };
+		7D3B81A8246B4A7A003B4A5B /* FireBaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B81A7246B4A7A003B4A5B /* FireBaseModule.swift */; };
+		7D56E19823F4317200F34ADA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56E19723F4317200F34ADA /* AppDelegate.swift */; };
+		7D56E19A23F4317200F34ADA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56E19923F4317200F34ADA /* SceneDelegate.swift */; };
+		7D56E19F23F4317200F34ADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56E19D23F4317200F34ADA /* Main.storyboard */; };
+		7D56E1A123F4317700F34ADA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D56E1A023F4317700F34ADA /* Assets.xcassets */; };
+		7D56E1A423F4317700F34ADA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56E1A223F4317700F34ADA /* LaunchScreen.storyboard */; };
+		7D75F01223FEB4E800258102 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F01123FEB4E800258102 /* OrderViewController.swift */; };
+		7D75F01423FEBA5F00258102 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D75F01323FEBA5F00258102 /* ProfileViewController.swift */; };
+		7DD4E8B72423B882001DBD53 /* CarListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD4E8B62423B882001DBD53 /* CarListCollectionViewController.swift */; };
+		7DD4E8BE2423BB0A001DBD53 /* CarsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD4E8BD2423BB0A001DBD53 /* CarsMenuViewController.swift */; };
+		7DD52210243357D000AF2B8C /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5220F243357CF00AF2B8C /* CarModel.swift */; };
+		7DD5221224335C5D00AF2B8C /* NetworkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5221124335C5D00AF2B8C /* NetworkModule.swift */; };
+		7DE51F26245C33BE00F3B34C /* FilterDataModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51F25245C33BE00F3B34C /* FilterDataModule.swift */; };
+		7DE51F28246032DC00F3B34C /* CarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51F27246032DC00F3B34C /* CarData.swift */; };
+		7DE51F2B24617F4300F3B34C /* BrandLIstTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51F2A24617F4300F3B34C /* BrandLIstTableCell.swift */; };
+		7DE51F2D24618BDB00F3B34C /* CarCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51F2C24618BDB00F3B34C /* CarCollectionCell.swift */; };
+		7DE51F302466C2BB00F3B34C /* RealmCarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51F2F2466C2BB00F3B34C /* RealmCarModule.swift */; };
+		7DF00868C747EACBD7325962 /* libPods-Diplom_beta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD63D3A3CA19B099D396C5D /* libPods-Diplom_beta.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03E3BB5D31566BFC31B8DE5C /* Pods-Diplom_beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diplom_beta.release.xcconfig"; path = "Target Support Files/Pods-Diplom_beta/Pods-Diplom_beta.release.xcconfig"; sourceTree = "<group>"; };
+		5CD63D3A3CA19B099D396C5D /* libPods-Diplom_beta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diplom_beta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D3B81A32468A20E003B4A5B /* SingleCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCarViewController.swift; sourceTree = "<group>"; };
+		7D3B81A5246B38F3003B4A5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D3B81A7246B4A7A003B4A5B /* FireBaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseModule.swift; sourceTree = "<group>"; };
+		7D56E19423F4317100F34ADA /* Diplom_beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diplom_beta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D56E19723F4317200F34ADA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7D56E19923F4317200F34ADA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7D56E19E23F4317200F34ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7D56E1A023F4317700F34ADA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D56E1A323F4317700F34ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D56E1A523F4317700F34ADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D75F01123FEB4E800258102 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		7D75F01323FEBA5F00258102 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7DD4E8B62423B882001DBD53 /* CarListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarListCollectionViewController.swift; sourceTree = "<group>"; };
+		7DD4E8BD2423BB0A001DBD53 /* CarsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsMenuViewController.swift; sourceTree = "<group>"; };
+		7DD5220F243357CF00AF2B8C /* CarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
+		7DD5221124335C5D00AF2B8C /* NetworkModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModule.swift; sourceTree = "<group>"; };
+		7DE51F25245C33BE00F3B34C /* FilterDataModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataModule.swift; sourceTree = "<group>"; };
+		7DE51F27246032DC00F3B34C /* CarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarData.swift; sourceTree = "<group>"; };
+		7DE51F2A24617F4300F3B34C /* BrandLIstTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandLIstTableCell.swift; sourceTree = "<group>"; };
+		7DE51F2C24618BDB00F3B34C /* CarCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCollectionCell.swift; sourceTree = "<group>"; };
+		7DE51F2F2466C2BB00F3B34C /* RealmCarModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCarModule.swift; sourceTree = "<group>"; };
+		D9BBE6A3F5D670C57B9A4DD4 /* Pods-Diplom_beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diplom_beta.debug.xcconfig"; path = "Target Support Files/Pods-Diplom_beta/Pods-Diplom_beta.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7D56E19123F4317100F34ADA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DF00868C747EACBD7325962 /* libPods-Diplom_beta.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7D56E18B23F4317100F34ADA = {
+			isa = PBXGroup;
+			children = (
+				7D56E19623F4317100F34ADA /* Diplom_beta */,
+				7D56E19523F4317100F34ADA /* Products */,
+				8CF406D6ED5407A669296695 /* Pods */,
+				EB159339DE82DA6244FE03F6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7D56E19523F4317100F34ADA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D56E19423F4317100F34ADA /* Diplom_beta.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7D56E19623F4317100F34ADA /* Diplom_beta */ = {
+			isa = PBXGroup;
+			children = (
+				7DE51F2E2466BF5B00F3B34C /* RealmModule */,
+				7DE51F2924617EEB00F3B34C /* Views */,
+				7DAB5E08242DE7C700CC25A5 /* NetworkModule */,
+				7DAB5E07242DE58600CC25A5 /* DataModule */,
+				7DD4E8BA2423B967001DBD53 /* ProfileModule */,
+				7DD4E8B92423B95A001DBD53 /* OrderModule */,
+				7DD4E8B82423B934001DBD53 /* CarsModule */,
+				7D56E19723F4317200F34ADA /* AppDelegate.swift */,
+				7D56E19923F4317200F34ADA /* SceneDelegate.swift */,
+				7D56E19D23F4317200F34ADA /* Main.storyboard */,
+				7D56E1A023F4317700F34ADA /* Assets.xcassets */,
+				7D56E1A223F4317700F34ADA /* LaunchScreen.storyboard */,
+				7D56E1A523F4317700F34ADA /* Info.plist */,
+				7D3B81A5246B38F3003B4A5B /* GoogleService-Info.plist */,
+			);
+			path = Diplom_beta;
+			sourceTree = "<group>";
+		};
+		7DAB5E07242DE58600CC25A5 /* DataModule */ = {
+			isa = PBXGroup;
+			children = (
+				7DD5220F243357CF00AF2B8C /* CarModel.swift */,
+				7DE51F25245C33BE00F3B34C /* FilterDataModule.swift */,
+				7DE51F27246032DC00F3B34C /* CarData.swift */,
+			);
+			path = DataModule;
+			sourceTree = "<group>";
+		};
+		7DAB5E08242DE7C700CC25A5 /* NetworkModule */ = {
+			isa = PBXGroup;
+			children = (
+				7DD5221124335C5D00AF2B8C /* NetworkModule.swift */,
+			);
+			path = NetworkModule;
+			sourceTree = "<group>";
+		};
+		7DD4E8B82423B934001DBD53 /* CarsModule */ = {
+			isa = PBXGroup;
+			children = (
+				7DD4E8BD2423BB0A001DBD53 /* CarsMenuViewController.swift */,
+				7DD4E8B62423B882001DBD53 /* CarListCollectionViewController.swift */,
+			);
+			path = CarsModule;
+			sourceTree = "<group>";
+		};
+		7DD4E8B92423B95A001DBD53 /* OrderModule */ = {
+			isa = PBXGroup;
+			children = (
+				7D75F01123FEB4E800258102 /* OrderViewController.swift */,
+			);
+			path = OrderModule;
+			sourceTree = "<group>";
+		};
+		7DD4E8BA2423B967001DBD53 /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				7D75F01323FEBA5F00258102 /* ProfileViewController.swift */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		7DE51F2924617EEB00F3B34C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7DE51F2A24617F4300F3B34C /* BrandLIstTableCell.swift */,
+				7DE51F2C24618BDB00F3B34C /* CarCollectionCell.swift */,
+				7D3B81A32468A20E003B4A5B /* SingleCarViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7DE51F2E2466BF5B00F3B34C /* RealmModule */ = {
+			isa = PBXGroup;
+			children = (
+				7DE51F2F2466C2BB00F3B34C /* RealmCarModule.swift */,
+				7D3B81A7246B4A7A003B4A5B /* FireBaseModule.swift */,
+			);
+			path = RealmModule;
+			sourceTree = "<group>";
+		};
+		8CF406D6ED5407A669296695 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9BBE6A3F5D670C57B9A4DD4 /* Pods-Diplom_beta.debug.xcconfig */,
+				03E3BB5D31566BFC31B8DE5C /* Pods-Diplom_beta.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EB159339DE82DA6244FE03F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CD63D3A3CA19B099D396C5D /* libPods-Diplom_beta.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D56E19323F4317100F34ADA /* Diplom_beta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D56E1A823F4317700F34ADA /* Build configuration list for PBXNativeTarget "Diplom_beta" */;
+			buildPhases = (
+				46248778AC1834A7FF33E563 /* [CP] Check Pods Manifest.lock */,
+				7D56E19023F4317100F34ADA /* Sources */,
+				7D56E19123F4317100F34ADA /* Frameworks */,
+				7D56E19223F4317100F34ADA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Diplom_beta;
+			productName = Diplom_beta;
+			productReference = 7D56E19423F4317100F34ADA /* Diplom_beta.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7D56E18C23F4317100F34ADA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = bmstu;
+				TargetAttributes = {
+					7D56E19323F4317100F34ADA = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 7D56E18F23F4317100F34ADA /* Build configuration list for PBXProject "Diplom_beta" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7D56E18B23F4317100F34ADA;
+			productRefGroup = 7D56E19523F4317100F34ADA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D56E19323F4317100F34ADA /* Diplom_beta */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7D56E19223F4317100F34ADA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D56E1A423F4317700F34ADA /* LaunchScreen.storyboard in Resources */,
+				7D3B81A6246B38F3003B4A5B /* GoogleService-Info.plist in Resources */,
+				7D56E1A123F4317700F34ADA /* Assets.xcassets in Resources */,
+				7D56E19F23F4317200F34ADA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46248778AC1834A7FF33E563 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Diplom_beta-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7D56E19023F4317100F34ADA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D75F01423FEBA5F00258102 /* ProfileViewController.swift in Sources */,
+				7D75F01223FEB4E800258102 /* OrderViewController.swift in Sources */,
+				7DD5221224335C5D00AF2B8C /* NetworkModule.swift in Sources */,
+				7D56E19823F4317200F34ADA /* AppDelegate.swift in Sources */,
+				7DD4E8BE2423BB0A001DBD53 /* CarsMenuViewController.swift in Sources */,
+				7D3B81A42468A20E003B4A5B /* SingleCarViewController.swift in Sources */,
+				7D56E19A23F4317200F34ADA /* SceneDelegate.swift in Sources */,
+				7DE51F2D24618BDB00F3B34C /* CarCollectionCell.swift in Sources */,
+				7DD52210243357D000AF2B8C /* CarModel.swift in Sources */,
+				7D3B81A8246B4A7A003B4A5B /* FireBaseModule.swift in Sources */,
+				7DD4E8B72423B882001DBD53 /* CarListCollectionViewController.swift in Sources */,
+				7DE51F2B24617F4300F3B34C /* BrandLIstTableCell.swift in Sources */,
+				7DE51F28246032DC00F3B34C /* CarData.swift in Sources */,
+				7DE51F302466C2BB00F3B34C /* RealmCarModule.swift in Sources */,
+				7DE51F26245C33BE00F3B34C /* FilterDataModule.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7D56E19D23F4317200F34ADA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D56E19E23F4317200F34ADA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7D56E1A223F4317700F34ADA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D56E1A323F4317700F34ADA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7D56E1A623F4317700F34ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7D56E1A723F4317700F34ADA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7D56E1A923F4317700F34ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9BBE6A3F5D670C57B9A4DD4 /* Pods-Diplom_beta.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TNSCV9KL43;
+				INFOPLIST_FILE = Diplom_beta/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Zakirov.Diplom-beta";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D56E1AA23F4317700F34ADA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03E3BB5D31566BFC31B8DE5C /* Pods-Diplom_beta.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TNSCV9KL43;
+				INFOPLIST_FILE = Diplom_beta/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Zakirov.Diplom-beta";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D56E18F23F4317100F34ADA /* Build configuration list for PBXProject "Diplom_beta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D56E1A623F4317700F34ADA /* Debug */,
+				7D56E1A723F4317700F34ADA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D56E1A823F4317700F34ADA /* Build configuration list for PBXNativeTarget "Diplom_beta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D56E1A923F4317700F34ADA /* Debug */,
+				7D56E1AA23F4317700F34ADA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7D56E18C23F4317100F34ADA /* Project object */;
+}

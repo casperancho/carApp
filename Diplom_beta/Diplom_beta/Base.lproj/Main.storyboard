@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9fM-dZ-hRg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Заказать-->
+        <scene sceneID="bx9-sD-CiX">
+            <objects>
+                <viewController id="RkW-Ak-fFw" customClass="OrderViewController" customModule="Diplom_beta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8HU-QR-hr2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hf4-a4-5SR"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Заказать" image="plus" catalog="system" id="HLZ-R3-9RW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P0t-GL-eNt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="485"/>
+        </scene>
+        <!--Профиль-->
+        <scene sceneID="l1Q-fm-3r3">
+            <objects>
+                <viewController id="PUC-5d-VkL" customClass="ProfileViewController" customModule="Diplom_beta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MiO-b2-Es5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="1Ty-HV-7kn"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="person" catalog="system" id="239-bo-dvr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XEe-3W-lX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="1192"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TZr-gO-cna">
+            <objects>
+                <navigationController id="9fM-dZ-hRg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4nl-OG-PpN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1Uv-Vg-I85" kind="relationship" relationship="rootViewController" id="Fvx-LL-pg1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ETM-PZ-EKv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1697" y="469"/>
+        </scene>
+        <!--Список автомобилей-->
+        <scene sceneID="hZA-f8-UsB">
+            <objects>
+                <viewController id="uUI-yG-V3E" customClass="CarsMenuViewController" customModule="Diplom_beta" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Список автомобилей" image="carIcon" id="Adw-OI-fut"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ra-RD-acW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="-163"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Kkn-A1-mlN">
+            <objects>
+                <tabBarController id="1Uv-Vg-I85" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="y5O-X1-2hT"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jxe-6M-aNI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uUI-yG-V3E" kind="relationship" relationship="viewControllers" id="Dl4-iN-STh"/>
+                        <segue destination="RkW-Ak-fFw" kind="relationship" relationship="viewControllers" id="vZ2-QM-ER2"/>
+                        <segue destination="PUC-5d-VkL" kind="relationship" relationship="viewControllers" id="UWJ-Gd-wp9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nqe-yG-qcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-841" y="485"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="carIcon" width="29" height="29"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
+    </resources>
+</document>
