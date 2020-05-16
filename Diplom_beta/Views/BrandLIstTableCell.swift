@@ -63,6 +63,6 @@ class BrandLIstTableCell: UITableViewCell {
     }
     
     func updateImage(with url: String){
-        brandImageView.af_setImage(withURL: URL(string: url)!)
+        brandImageView.af.setImage(withURL: URL(string: url)!)
     }
 }

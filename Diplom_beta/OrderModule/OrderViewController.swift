@@ -10,8 +10,7 @@ import UIKit
 import RealmSwift
 import Realm
 
-class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
-
+class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var cars: CarData? = nil
     let realm = try! Realm()
@@ -39,8 +38,13 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     let numberField = UITextField()
     let startAddresField = UITextField()
     let startAddresLabel = UILabel()
+    let priceLabel = UILabel()
+    
     
     let createOrderButton = UIButton()
+    var order = RentOrder()
+    var formatter = DateFormatter()
+    let fireBase = FireBaseDataModel()
     
     override func viewDidLoad() {
         let carD = CarData()
@@ -48,6 +52,13 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         cars?.realmExtracting()
         cars?.filterData()
         prepareView()
+        fireBase.downloadPrices()
+        
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +67,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
  
     func prepareView(){
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1400)
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 1500)
         
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints{ make in
@@ -226,6 +237,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         startDatePicker.datePickerMode = .date
         startDatePicker.minimumDate = Date()
+        startDatePicker.addTarget(self, action: #selector(dateChanged(picker:)), for: .valueChanged)
         
         scrollView.addSubview(endDateLabel)
         endDateLabel.snp.makeConstraints{ make in
@@ -244,6 +256,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         endDatePicker.datePickerMode = .date
         endDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+        endDatePicker.addTarget(self, action: #selector(dateChanged(picker:)), for: .valueChanged)
         
         scrollView.addSubview(startAddresLabel)
         startAddresLabel.snp.makeConstraints{ make in
@@ -263,9 +276,18 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         startAddresField.backgroundColor = .white
         
+        scrollView.addSubview(priceLabel)
+        priceLabel.snp.makeConstraints{ make in
+            make.centerX.equalToSuperview()
+            make.height.equalTo(20)
+            make.width.equalTo(300)
+            make.top.equalTo(startAddresField.snp.bottom).offset(30)
+        }
+        priceLabel.text = "Стоимость: "
+        
         scrollView.addSubview(createOrderButton)
         createOrderButton.snp.makeConstraints{ make in
-            make.top.equalTo(startAddresField.snp.bottom).offset(30)
+            make.top.equalTo(priceLabel.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
             make.height.equalTo(50)
             make.width.equalTo(250)
@@ -284,7 +306,17 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @objc func createButtonClicked(sender: UIButton!) {
-        print("create")
+        order.car_name = cars!.selectedBrandCars[selectedCarIndex].car_name!
+        order.fio = "\((nameTextInput.text ?? "")) \(surnameTextInput.text ?? ""))"
+        order.phoneNumber = "\(phoneTextInput.text ?? "")"
+
+        order.startDate = formatter.string(from: startDatePicker.date)
+        order.endDate = formatter.string(from: endDatePicker.date)
+        order.price = fireBase.priceCounting(car: cars!.selectedBrandCars[selectedCarIndex].car_name!,
+                                             start: startDatePicker.date,
+                                             end: endDatePicker.date)
+        order.startPlace = startAddresField.text ?? ""
+        fireBase.writeOrder(order: order)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -321,6 +353,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         case 1:
             cars?.selectBrand(index: row)
             carModelPicker.reloadAllComponents()
+            selectedCarIndex = 0
         case 2:
             selectedCarIndex = row
         default: break
@@ -333,6 +366,14 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             return "\(car.car_name! + " "  + car.car_color! + ".Караоке")"
         }
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(picker: UIDatePicker) {
+        priceLabel.text = "Стоимость: \(fireBase.priceCounting(car: cars!.selectedBrandCars[selectedCarIndex].car_name!, start: startDatePicker.date, end: endDatePicker.date))"
     }
 }
 

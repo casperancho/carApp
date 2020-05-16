@@ -12,6 +12,9 @@ import UIKit
 
 class FireBaseDataModel {
     
+    let mayDateString = "2020-05-16 23:52:00"
+    let formatter = DateFormatter()
+
     struct carPrice {
         var name = ""
         var budn = 0
@@ -23,6 +26,7 @@ class FireBaseDataModel {
     var ref: DatabaseReference!
     var tabView: UITableView?
     var priceArr: [carPrice] = []
+    var selectedCar = carPrice()
     
     func getMarksPhoto(){
         var marks: [String : String] = [:]
@@ -42,6 +46,7 @@ class FireBaseDataModel {
     func searchUrlFor(car: String) -> String {
         return marksUrl["\(car)"] ?? "https://i.pinimg.com/originals/10/b2/f6/10b2f6d95195994fca386842dae53bb2.png"
     }
+    
     
     func downloadPrices() {
         var prices = priceArr
@@ -71,7 +76,43 @@ class FireBaseDataModel {
         })
     }
     
-    func writeOrder(){
-        ref.child("orders").child("2").setValue(["car_name": priceArr.first?.name, "start_date": "21-05-2020"])
+    func writeOrder(order: RentOrder){
+        let now = Date()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let mayDate = formatter.date(from: mayDateString)
+        let timeStamp = Int(now.timeIntervalSince(mayDate!)/2)
+        ref.child("orders").child("\(timeStamp)").setValue(["car_name":order.car_name, "fio": order.fio,
+                                                            "phoneNumber": order.phoneNumber,
+                                                            "startDate": order.startDate,
+                                                            "endDate": order.endDate,
+                                                            "startPlace": order.startPlace, "price": order.price])
     }
+    
+    func priceCounting(car: String, start: Date, end: Date) -> String {
+        if !(selectedCar.name == car.replacingOccurrences(of: ".", with: "")) {
+            for item in priceArr {
+                if (item.name == car.replacingOccurrences(of: ".", with: "")) {
+                    selectedCar = item
+                    break
+                }
+            }
+        }
+        
+        var startDateHelper = start
+        var priceSum = 0
+        while startDateHelper < end {
+            switch Calendar.current.component(.weekday, from: startDateHelper) {
+            case 1...6:
+                priceSum += selectedCar.budn
+            case 7:
+                priceSum += selectedCar.sat
+            default:
+                continue
+            }
+            startDateHelper = Calendar.current.date(byAdding: .day, value: 1, to: startDateHelper)!
+        }
+        return "\(priceSum)"
+    }
+    
 }

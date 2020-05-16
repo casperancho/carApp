@@ -10,6 +10,7 @@
 		7D3B81A42468A20E003B4A5B /* SingleCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B81A32468A20E003B4A5B /* SingleCarViewController.swift */; };
 		7D3B81A6246B38F3003B4A5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B81A5246B38F3003B4A5B /* GoogleService-Info.plist */; };
 		7D3B81A8246B4A7A003B4A5B /* FireBaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B81A7246B4A7A003B4A5B /* FireBaseModule.swift */; };
+		7D3E2B002470826F0064471A /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E2AFF2470826F0064471A /* OrderModel.swift */; };
 		7D56E19823F4317200F34ADA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56E19723F4317200F34ADA /* AppDelegate.swift */; };
 		7D56E19A23F4317200F34ADA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D56E19923F4317200F34ADA /* SceneDelegate.swift */; };
 		7D56E19F23F4317200F34ADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D56E19D23F4317200F34ADA /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		7D3B81A32468A20E003B4A5B /* SingleCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCarViewController.swift; sourceTree = "<group>"; };
 		7D3B81A5246B38F3003B4A5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D3B81A7246B4A7A003B4A5B /* FireBaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseModule.swift; sourceTree = "<group>"; };
+		7D3E2AFF2470826F0064471A /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		7D56E19423F4317100F34ADA /* Diplom_beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diplom_beta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D56E19723F4317200F34ADA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D56E19923F4317200F34ADA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				7DD5220F243357CF00AF2B8C /* CarModel.swift */,
 				7DE51F25245C33BE00F3B34C /* FilterDataModule.swift */,
 				7DE51F27246032DC00F3B34C /* CarData.swift */,
+				7D3E2AFF2470826F0064471A /* OrderModel.swift */,
 			);
 			path = DataModule;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				7D3B81A42468A20E003B4A5B /* SingleCarViewController.swift in Sources */,
 				7D56E19A23F4317200F34ADA /* SceneDelegate.swift in Sources */,
 				7DE51F2D24618BDB00F3B34C /* CarCollectionCell.swift in Sources */,
+				7D3E2B002470826F0064471A /* OrderModel.swift in Sources */,
 				7DD52210243357D000AF2B8C /* CarModel.swift in Sources */,
 				7D3B81A8246B4A7A003B4A5B /* FireBaseModule.swift in Sources */,
 				7DD4E8B72423B882001DBD53 /* CarListCollectionViewController.swift in Sources */,
