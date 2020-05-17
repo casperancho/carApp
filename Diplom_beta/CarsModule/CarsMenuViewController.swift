@@ -36,6 +36,7 @@ class CarsMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         
         fireBase.getMarksPhoto()
         fireBase.tabView = menuTableView
+        fireBase.downloadPictures()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,9 +63,10 @@ class CarsMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let VC = CarListCollectionViewController(carData: carD)
+        let VC = CarListCollectionViewController(carData: carD, fb: fireBase)
         carD.selectBrand(index: indexPath.row)
-        navigationController?.pushViewController(VC, animated: true)        
+        VC.fireBase = fireBase
+        navigationController?.pushViewController(VC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

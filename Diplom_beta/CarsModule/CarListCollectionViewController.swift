@@ -20,11 +20,14 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
     var flowLayout = UICollectionViewFlowLayout()
     var label = UILabel()
     
+    var fireBase: FireBaseDataModel?
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    init(carData: CarData) {
+    init(carData: CarData, fb: FireBaseDataModel) {
+        fireBase = fb
         carD = carData
         super.init(nibName: nil, bundle: nil)
     }
@@ -49,6 +52,8 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
         collView.delegate = self
         collView.dataSource = self
         showCollectionView()
+        
+        
     }
     
     func updateDataOf (cars: FilteredCarData) {
@@ -109,7 +114,15 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let collCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollCell", for: indexPath) as! CarCollectionCell
+        var url = ""
+        switch fireBase!.picturesDownloaded {
+        case true:
+            url = fireBase!.findPicture(for: (carD?.selectedBrandCars[indexPath.section])!)
+        case false:
+            url = ""
+        }
         collCell.updateName(name: (carD?.selectedBrandCars[indexPath.section].car_name)!)
+        collCell.updatePhoto(url: url)
         return collCell
     }
     
@@ -136,6 +149,14 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = SingleCarViewController(car: (carD?.selectedBrandCars[indexPath.section])!, shouldChose: true)
+        var url = ""
+        switch fireBase!.picturesDownloaded {
+        case true:
+            url = fireBase!.findPicture(for: (carD?.selectedBrandCars[indexPath.section])!)
+        case false:
+            url = ""
+        }
+        vc.updatePhoto(url: url)
         navigationController?.pushViewController(vc, animated: true)
     }
     

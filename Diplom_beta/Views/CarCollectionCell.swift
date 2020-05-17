@@ -53,6 +53,14 @@ class CarCollectionCell: UICollectionViewCell {
         nameLabel.textAlignment = .center
     }
     
+    func updatePhoto(url: String){
+        var localUrl = url
+        if localUrl.isEmpty {
+            localUrl = "https://i.pinimg.com/originals/10/b2/f6/10b2f6d95195994fca386842dae53bb2.png"
+        }
+        carImageView.af.setImage(withURL: URL(string: localUrl)!)
+    }
+    
     override func layoutSubviews() { //очень красиво тень
         super.layoutSubviews()
         

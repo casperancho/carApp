@@ -10,11 +10,15 @@ import UIKit
 import SnapKit
 import Realm
 import RealmSwift
+import AlamofireImage
+import Alamofire
 
 class SingleCarViewController: UIViewController {
     
     let photoView = UIView()
     let pricesView = UIView()
+    
+    var photo = UIImageView()
     
     let pricesLabel = UILabel()
     let carNameLabel = UILabel()
@@ -46,15 +50,32 @@ class SingleCarViewController: UIViewController {
         prepareView()
     }
     
+    func layoutSubviews() { //очень красиво тень
+        photoView.layoutSubviews()
+        photoView.layer.cornerRadius = 5
+        photoView.layer.shadowRadius = 9
+        photoView.layer.shadowOpacity = 0.3
+        photoView.layer.shadowOffset = CGSize(width: 5, height: 8)
+        
+        photoView.clipsToBounds = false
+    }
+    
     func prepareView(){
         view.addSubview(photoView)
         photoView.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(20)
-            make.width.equalTo(500)
+            make.top.equalToSuperview().offset(100)
+            make.width.equalToSuperview().inset(10)
             make.height.equalTo(300)
         }
-        photoView.backgroundColor = .cyan
+        photoView.backgroundColor = .white
+        
+        photoView.addSubview(photo)
+        photo.snp.makeConstraints{ make in
+            make.size.equalToSuperview()
+        }
+        
+        layoutSubviews()
         
         view.addSubview(carNameLabel) //name
         carNameLabel.snp.makeConstraints{ make in
@@ -114,14 +135,14 @@ class SingleCarViewController: UIViewController {
             make.top.equalTo(carKaraokeLabel.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.width.equalTo(500)
-            make.height.equalTo(300)
+            make.height.equalTo(100)
         }
         pricesView.backgroundColor = .magenta
         
         if shouldChoseCar! {
             view.addSubview(choseCarButton)
             choseCarButton.snp.makeConstraints{ make in
-                make.top.equalTo(pricesView.snp.bottom).offset(20)
+                make.top.equalTo(pricesView.snp.bottom).offset(10)
                 make.centerX.equalToSuperview()
                 make.height.equalTo(30)
                 make.width.equalTo(500)
@@ -152,6 +173,14 @@ class SingleCarViewController: UIViewController {
         }
         if result.last == "-" { result.removeLast() }
         return result
+    }
+    
+    func updatePhoto(url: String){
+        var localUrl = url
+        if localUrl.isEmpty {
+            localUrl = "https://i.pinimg.com/originals/10/b2/f6/10b2f6d95195994fca386842dae53bb2.png"
+        }
+        photo.af.setImage(withURL: URL(string: localUrl)!)
     }
     
 }

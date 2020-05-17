@@ -22,11 +22,19 @@ class FireBaseDataModel {
         var sat = 0
     }
     
+    struct carPicture {
+        var name = ""
+        var colors: [String: String] = [:]
+    }
+    
     var marksUrl: [String : String] = [:]
     var ref: DatabaseReference!
     var tabView: UITableView?
+    var dependsView: UIView?
     var priceArr: [carPrice] = []
     var selectedCar = carPrice()
+    var pictures: [carPicture] = []
+    var picturesDownloaded = false
     
     func getMarksPhoto(){
         var marks: [String : String] = [:]
@@ -113,6 +121,36 @@ class FireBaseDataModel {
             startDateHelper = Calendar.current.date(byAdding: .day, value: 1, to: startDateHelper)!
         }
         return "\(priceSum)"
+    }
+    
+    func downloadPictures() {
+        var pics = pictures
+        ref = Database.database().reference()
+        ref.child("carPictures").observe(.value, with: { snapshot in
+            for snap in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let dict = snap.value as? [String : AnyObject] else {
+                    return
+                }
+                var pic = carPicture()
+                pic.name = snap.key
+                for item in dict{
+                    pic.colors[item.key] = item.value as! String
+                }
+                pics.append(pic)
+            }
+            self.pictures = pics
+            self.picturesDownloaded = true
+        })
+    }
+    
+    func findPicture(for car: CarModel) -> String{
+        for pics in pictures {
+            if pics.name.replacingOccurrences(of: " ", with: "") ==
+                car.car_name?.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: " ", with: "") {
+                return pics.colors[(car.car_color?.lowercased())!]!
+            }
+        }
+        return ""
     }
     
 }

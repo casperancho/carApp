@@ -53,6 +53,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         cars?.filterData()
         prepareView()
         fireBase.downloadPrices()
+        fireBase.downloadPictures()
         
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -302,7 +303,15 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @objc func checkButtonClicked(sender: UIButton!) {
         let vc = SingleCarViewController(car: (cars!.selectedBrandCars[selectedCarIndex]), shouldChose: false)
+        var url = ""
+        switch fireBase.picturesDownloaded {
+        case true:
+            url = fireBase.findPicture(for: cars!.selectedBrandCars[selectedCarIndex])
+        case false:
+            url = ""
+        }
         navigationController?.pushViewController(vc, animated: true)
+        vc.updatePhoto(url: url)
     }
     
     @objc func createButtonClicked(sender: UIButton!) {
