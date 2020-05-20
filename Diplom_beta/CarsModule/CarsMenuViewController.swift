@@ -37,6 +37,7 @@ class CarsMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         fireBase.getMarksPhoto()
         fireBase.tabView = menuTableView
         fireBase.downloadPictures()
+        fireBase.findLastUserid()
     }
     
     override func viewWillAppear(_ animated: Bool) {

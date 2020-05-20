@@ -9,6 +9,8 @@
 import Foundation
 import Firebase
 import UIKit
+import RealmSwift
+import Realm
 
 class FireBaseDataModel {
     
@@ -95,6 +97,17 @@ class FireBaseDataModel {
                                                             "startDate": order.startDate,
                                                             "endDate": order.endDate,
                                                             "startPlace": order.startPlace, "price": order.price])
+
+        
+        let realm = try! Realm()
+        var d = realm.objects(RealmUser.self)
+        var client = d.first!
+        try! realm.write {
+            client.phone_number = order.phoneNumber
+            client.user_name = order.fio.components(separatedBy: " ").first!
+            client.user_surname = order.fio.components(separatedBy: " ").last!
+            client.orders.append(String(timeStamp))
+        }
     }
     
     func priceCounting(car: String, start: Date, end: Date) -> String {
@@ -151,6 +164,33 @@ class FireBaseDataModel {
             }
         }
         return ""
+    }
+    
+    func findLastUserid(){
+        ref = Database.database().reference()
+        ref.child("clients").observe(.value, with: { snapshot in
+            let realm = try! Realm()
+            if (realm.objects(RealmUser.self).isEmpty) {
+                try! realm.write {
+                    let user = RealmUser()
+                    let snp = snapshot.children.allObjects as! [DataSnapshot]
+                    user.user_id = Int(snp.last!.key)! + 1
+                    realm.add(user)
+                }
+            }
+        })
+    }
+    
+    func createNewClient(user: RealmUser){
+        ref = Database.database().reference()
+        ref.child("clients").observeSingleEvent(of: .value, with: { snapshot in
+            if snapshot.hasChild(String(user.user_id)) {
+                print(true)
+            } else {
+                print(false)
+            }
+            
+        })
     }
     
 }

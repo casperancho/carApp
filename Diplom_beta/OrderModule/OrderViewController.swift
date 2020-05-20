@@ -43,6 +43,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     let createOrderButton = UIButton()
     var order = RentOrder()
+    var client = RealmUser()
     var formatter = DateFormatter()
     let fireBase = FireBaseDataModel()
     
@@ -316,7 +317,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @objc func createButtonClicked(sender: UIButton!) {
         order.car_name = cars!.selectedBrandCars[selectedCarIndex].car_name!
-        order.fio = "\((nameTextInput.text ?? "")) \(surnameTextInput.text ?? ""))"
+        order.fio = "\((nameTextInput.text ?? "")) \(surnameTextInput.text ?? "")"
         order.phoneNumber = "\(phoneTextInput.text ?? "")"
 
         order.startDate = formatter.string(from: startDatePicker.date)
