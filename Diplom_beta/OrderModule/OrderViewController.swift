@@ -52,6 +52,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         cars = carD
         cars?.realmExtracting()
         cars?.filterData()
+        cars?.selectBrand(index: 0)
         prepareView()
         fireBase.downloadPrices()
         fireBase.downloadPictures()
@@ -316,17 +317,36 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @objc func createButtonClicked(sender: UIButton!) {
-        order.car_name = cars!.selectedBrandCars[selectedCarIndex].car_name!
-        order.fio = "\((nameTextInput.text ?? "")) \(surnameTextInput.text ?? "")"
-        order.phoneNumber = "\(phoneTextInput.text ?? "")"
+        
+        var alertText = ""
+        if cars!.selectedBrandCars[selectedCarIndex].car_name! == "" { alertText += "Выберете автомобиль\n" }
+        if nameTextInput.text == "" { alertText += "Введите имя\n" }
+        if surnameTextInput.text == "" { alertText += "Введите фамилию\n" }
+        if phoneTextInput.text == "" { alertText += "Введите номер телефона" }
+        
+        if !alertText.isEmpty {
+            let alert = UIAlertController(title: "Введите корректно данные", message: alertText, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            order.car_name = cars!.selectedBrandCars[selectedCarIndex].car_name!
+            order.fio = "\((nameTextInput.text ?? "")) \(surnameTextInput.text ?? "")"
+            order.phoneNumber = "\(phoneTextInput.text ?? "")"
 
-        order.startDate = formatter.string(from: startDatePicker.date)
-        order.endDate = formatter.string(from: endDatePicker.date)
-        order.price = fireBase.priceCounting(car: cars!.selectedBrandCars[selectedCarIndex].car_name!,
+            order.startDate = formatter.string(from: startDatePicker.date)
+            order.endDate = formatter.string(from: endDatePicker.date)
+            order.price = fireBase.priceCounting(car: cars!.selectedBrandCars[selectedCarIndex].car_name!,
                                              start: startDatePicker.date,
                                              end: endDatePicker.date)
-        order.startPlace = startAddresField.text ?? ""
-        fireBase.writeOrder(order: order)
+            order.startPlace = startAddresField.text ?? ""
+            fireBase.writeOrder(order: order)
+            let alert = UIAlertController(title: "Заказ успешно создан", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Пройти в личный кабинет", style: UIAlertAction.Style.default, handler: { action in
+                self.tabBarController?.selectedIndex = 2
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -368,6 +388,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             selectedCarIndex = row
         default: break
         }
+        dateChanged(picker: startDatePicker)
     }
 
     func formatString(car:CarModel) -> String {
