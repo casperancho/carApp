@@ -344,7 +344,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             alert.addAction(UIAlertAction(title: "Пройти в личный кабинет", style: UIAlertAction.Style.default, handler: { action in
                 self.tabBarController?.selectedIndex = 2
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }

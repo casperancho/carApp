@@ -16,5 +16,6 @@ class RealmUser: Object {
     @objc dynamic var user_surname: String = ""
     @objc dynamic var phone_number: String = ""
     var orders = List<String>()
-    
+    @objc dynamic var selectedCarId: Int = 0
+    @objc dynamic var userClickedGoOrder: Bool = false
 }

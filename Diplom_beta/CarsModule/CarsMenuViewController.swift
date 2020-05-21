@@ -17,6 +17,17 @@ class CarsMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     var menuTableView = UITableView()
     var carD = CarData()
     var fireBase = FireBaseDataModel()
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let user = realm.objects(RealmUser.self).first!
+        if user.userClickedGoOrder {
+            self.tabBarController?.selectedIndex = 1
+            try! realm.write {
+                user.userClickedGoOrder = false
+            }
+        }
+    }
     
     override func viewDidLoad() {
         print(realm.configuration.fileURL!)

@@ -151,8 +151,27 @@ class SingleCarViewController: UIViewController {
             choseCarButton.titleLabel?.textAlignment = .center
             choseCarButton.backgroundColor = .white
             choseCarButton.setTitleColor(.black, for: .normal)
+            choseCarButton.addTarget(self, action: #selector(self.choseCar(sender:)), for: .touchUpInside)
         }
     }
+    
+    @objc func choseCar(sender: UIButton!) {
+        let realm = try! Realm()
+        let user = realm.objects(RealmUser.self).first!
+        try! realm.write {
+            user.selectedCarId = car!.car_id!
+        }
+        let alert = UIAlertController(title: "Автомобиль выбран", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Оформить заказ", style: UIAlertAction.Style.default, handler: { action in
+            self.navigationController?.popToRootViewController(animated: true)
+            try! realm.write {
+                user.userClickedGoOrder = true
+            }
+            }))
+        alert.addAction(UIAlertAction(title: "Продолжить выбор", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     func getCorrectNameOf(car: String) -> String {
         return car.replacingOccurrences(of: "\(getCapacityOf(car: car))м.", with: "").replacingOccurrences(of: "\(getCapacityOf(car: car))м", with: "")
