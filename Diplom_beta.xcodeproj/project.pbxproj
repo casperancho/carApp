@@ -23,6 +23,7 @@
 		7DD4E8BE2423BB0A001DBD53 /* CarsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD4E8BD2423BB0A001DBD53 /* CarsMenuViewController.swift */; };
 		7DD52210243357D000AF2B8C /* CarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5220F243357CF00AF2B8C /* CarModel.swift */; };
 		7DD5221224335C5D00AF2B8C /* NetworkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD5221124335C5D00AF2B8C /* NetworkModule.swift */; };
+		7DDBD188248E4F2C00CDF4E2 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDBD187248E4F2C00CDF4E2 /* FeedBackViewController.swift */; };
 		7DE51F26245C33BE00F3B34C /* FilterDataModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51F25245C33BE00F3B34C /* FilterDataModule.swift */; };
 		7DE51F28246032DC00F3B34C /* CarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51F27246032DC00F3B34C /* CarData.swift */; };
 		7DE51F2B24617F4300F3B34C /* BrandLIstTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE51F2A24617F4300F3B34C /* BrandLIstTableCell.swift */; };
@@ -52,6 +53,7 @@
 		7DD4E8BD2423BB0A001DBD53 /* CarsMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsMenuViewController.swift; sourceTree = "<group>"; };
 		7DD5220F243357CF00AF2B8C /* CarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarModel.swift; sourceTree = "<group>"; };
 		7DD5221124335C5D00AF2B8C /* NetworkModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModule.swift; sourceTree = "<group>"; };
+		7DDBD187248E4F2C00CDF4E2 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		7DE51F25245C33BE00F3B34C /* FilterDataModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterDataModule.swift; sourceTree = "<group>"; };
 		7DE51F27246032DC00F3B34C /* CarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarData.swift; sourceTree = "<group>"; };
 		7DE51F2A24617F4300F3B34C /* BrandLIstTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandLIstTableCell.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				7D75F01323FEBA5F00258102 /* ProfileViewController.swift */,
+				7DDBD187248E4F2C00CDF4E2 /* FeedBackViewController.swift */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DD26AD4247577A000737466 /* RealUserModule.swift in Sources */,
+				7DDBD188248E4F2C00CDF4E2 /* FeedBackViewController.swift in Sources */,
 				7D75F01423FEBA5F00258102 /* ProfileViewController.swift in Sources */,
 				7D75F01223FEB4E800258102 /* OrderViewController.swift in Sources */,
 				7DD5221224335C5D00AF2B8C /* NetworkModule.swift in Sources */,

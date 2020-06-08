@@ -41,7 +41,7 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
         
         view.backgroundColor = .white
         segmentedControl.contentVerticalAlignment = .center
-        segmentedControl.addTarget(self, action: #selector(changeColor(sender:)), for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(changeChoose(sender:)), for: .valueChanged)
         
         tabView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
         tabView.delegate = self
@@ -62,7 +62,7 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
     }
     
     
-    @objc func changeColor (sender: UISegmentedControl) {
+    @objc func changeChoose (sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             prepareCollectionView()

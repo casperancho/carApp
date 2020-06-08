@@ -46,8 +46,15 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var client = RealmUser()
     var formatter = DateFormatter()
     let fireBase = FireBaseDataModel()
+    var user = RealmUser()
     
     override func viewDidLoad() {
+        let usr = realm.objects(RealmUser.self).first
+        if usr != nil {
+            user = usr!
+            print(usr)
+        }
+        
         let carD = CarData()
         cars = carD
         cars?.realmExtracting()
@@ -66,6 +73,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.topItem!.title = "Заказать автомобиль"
+
     }
  
     func prepareView(){
@@ -107,6 +115,9 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             make.height.equalTo(20)
         }
         nameTextInput.backgroundColor = .white
+        if (user.user_id != -1) {
+            nameTextInput.text = user.user_name
+        }
         
         scrollView.addSubview(surnameLabel)
         surnameLabel.snp.makeConstraints{ make in
@@ -126,6 +137,9 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             make.height.equalTo(20)
         }
         surnameTextInput.backgroundColor = .white
+        if (user.user_id != -1) {
+            surnameTextInput.text = user.user_surname
+        }
         
         scrollView.addSubview(phoneLabel)
         phoneLabel.snp.makeConstraints{ make in
@@ -145,6 +159,9 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             make.height.equalTo(20)
         }
         phoneTextInput.backgroundColor = .white
+        if (user.user_id != -1) {
+            phoneTextInput.text = user.phone_number
+        }
         /*
          ON EDIT event
          private func formatPhone(_ number: String) -> String {

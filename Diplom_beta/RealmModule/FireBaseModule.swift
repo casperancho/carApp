@@ -36,6 +36,7 @@ class FireBaseDataModel {
     var priceArr: [carPrice] = []
     var selectedCar = carPrice()
     var pictures: [carPicture] = []
+    var rentOrders: [RentOrder] = []
     var picturesDownloaded = false
     
     func getMarksPhoto(){
@@ -87,6 +88,10 @@ class FireBaseDataModel {
     }
     
     func writeOrder(order: RentOrder){
+        let realm = try! Realm()
+        let d = realm.objects(RealmUser.self)
+        let client = d.first!
+        
         let now = Date()
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -96,17 +101,19 @@ class FireBaseDataModel {
                                                             "phoneNumber": order.phoneNumber,
                                                             "startDate": order.startDate,
                                                             "endDate": order.endDate,
-                                                            "startPlace": order.startPlace, "price": order.price])
+                                                            "startPlace": order.startPlace, "price": order.price, "clientId": client.user_id])
 
-        
-        let realm = try! Realm()
-        var d = realm.objects(RealmUser.self)
-        var client = d.first!
-        try! realm.write {
-            client.phone_number = order.phoneNumber
-            client.user_name = order.fio.components(separatedBy: " ").first!
-            client.user_surname = order.fio.components(separatedBy: " ").last!
-            client.orders.append(String(timeStamp))
+        if client.phone_number.isEmpty && client.user_name.isEmpty {
+            try! realm.write {
+                client.phone_number = order.phoneNumber
+                client.user_name = order.fio.components(separatedBy: " ").first!
+                client.user_surname = order.fio.components(separatedBy: " ").last!
+                client.orders.append(String(timeStamp))
+            }
+        } else {
+            try! realm.write {
+                client.orders.append(String(timeStamp))
+            }
         }
     }
     
@@ -193,4 +200,32 @@ class FireBaseDataModel {
         })
     }
     
+    func getOrdersOf(user: Int){
+        var result: [RentOrder] = []
+        ref = Database.database().reference()
+        ref.child("orders").observe(.value, with: { snapshot in
+            for snap in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let dict = snap.value as? [String : AnyObject] else {
+                    return
+                }
+                if (dict["clientId"] != nil) {
+                    if (dict["clientId"] as! Int == user) {
+                        let order = RentOrder(
+                            car_name: dict["car_name"] as! String,
+                            fio: dict["fio"] as! String,
+                            phoneNumber: dict["phoneNumber"] as! String,
+                            startDate: dict["startDate"] as! String,
+                            endDate: dict["endDate"] as! String,
+                            price: dict["price"] as! String,
+                            startPlace: dict["startPlace"] as! String,
+                            clientId: dict["clientId"] as! Int,
+                            orderId: snap.key )
+                        result.append(order)
+                    }
+                }
+            }
+            self.rentOrders = result
+            self.tabView?.reloadData()
+        })
+    }
 }

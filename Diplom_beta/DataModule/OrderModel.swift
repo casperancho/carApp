@@ -16,5 +16,6 @@ struct RentOrder {
     var endDate: String = ""
     var price: String = ""
     var startPlace: String = ""
-    
+    var clientId: Int = -1
+    var orderId: String = ""
 }
