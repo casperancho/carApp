@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0516D124913CE600203D8F /* carPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0516D024913CE600203D8F /* carPrice.swift */; };
 		7D3B81A42468A20E003B4A5B /* SingleCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B81A32468A20E003B4A5B /* SingleCarViewController.swift */; };
 		7D3B81A6246B38F3003B4A5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D3B81A5246B38F3003B4A5B /* GoogleService-Info.plist */; };
 		7D3B81A8246B4A7A003B4A5B /* FireBaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3B81A7246B4A7A003B4A5B /* FireBaseModule.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		03E3BB5D31566BFC31B8DE5C /* Pods-Diplom_beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Diplom_beta.release.xcconfig"; path = "Target Support Files/Pods-Diplom_beta/Pods-Diplom_beta.release.xcconfig"; sourceTree = "<group>"; };
 		5CD63D3A3CA19B099D396C5D /* libPods-Diplom_beta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Diplom_beta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D0516D024913CE600203D8F /* carPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carPrice.swift; sourceTree = "<group>"; };
 		7D3B81A32468A20E003B4A5B /* SingleCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCarViewController.swift; sourceTree = "<group>"; };
 		7D3B81A5246B38F3003B4A5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D3B81A7246B4A7A003B4A5B /* FireBaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseModule.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				7DE51F25245C33BE00F3B34C /* FilterDataModule.swift */,
 				7DE51F27246032DC00F3B34C /* CarData.swift */,
 				7D3E2AFF2470826F0064471A /* OrderModel.swift */,
+				7D0516D024913CE600203D8F /* carPrice.swift */,
 			);
 			path = DataModule;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				7D56E19A23F4317200F34ADA /* SceneDelegate.swift in Sources */,
 				7DE51F2D24618BDB00F3B34C /* CarCollectionCell.swift in Sources */,
 				7D3E2B002470826F0064471A /* OrderModel.swift in Sources */,
+				7D0516D124913CE600203D8F /* carPrice.swift in Sources */,
 				7DD52210243357D000AF2B8C /* CarModel.swift in Sources */,
 				7D3B81A8246B4A7A003B4A5B /* FireBaseModule.swift in Sources */,
 				7DD4E8B72423B882001DBD53 /* CarListCollectionViewController.swift in Sources */,

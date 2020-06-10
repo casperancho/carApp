@@ -28,7 +28,7 @@ class CarCollectionCell: UICollectionViewCell {
         mainView.snp.makeConstraints{ make in
             make.size.equalToSuperview()
         }
-        mainView.backgroundColor = .magenta
+        mainView.backgroundColor = .systemBackground
         
         mainView.addSubview(carImageView)
         carImageView.snp.makeConstraints{ make in
@@ -44,8 +44,11 @@ class CarCollectionCell: UICollectionViewCell {
             make.top.equalTo(carImageView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
             make.width.equalTo(carImageView)
-            make.height.equalTo(20)
+            make.height.equalTo(60)
         }
+        nameLabel.lineBreakMode = .byWordWrapping // or NSLineBreakMode.ByWordWrapping
+        nameLabel.numberOfLines = 0
+        nameLabel.font = UIFont(name: "Georgia", size: 20)
     }
     
     func updateName(name: String){
@@ -70,5 +73,13 @@ class CarCollectionCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 5, height: 8)
         
         self.clipsToBounds = false
+        
+        carImageView.layoutSubviews()
+        carImageView.layer.cornerRadius = 5
+        carImageView.layer.shadowRadius = 9
+        carImageView.layer.shadowOpacity = 0.3
+        carImageView.layer.shadowOffset = CGSize(width: 5, height: 8)
+        
+        carImageView.clipsToBounds = false
     }
 }

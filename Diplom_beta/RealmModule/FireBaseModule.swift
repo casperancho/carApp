@@ -16,13 +16,6 @@ class FireBaseDataModel {
     
     let mayDateString = "2020-05-16 23:52:00"
     let formatter = DateFormatter()
-
-    struct carPrice {
-        var name = ""
-        var budn = 0
-        var frd = 0
-        var sat = 0
-    }
     
     struct carPicture {
         var name = ""
@@ -227,5 +220,14 @@ class FireBaseDataModel {
             self.rentOrders = result
             self.tabView?.reloadData()
         })
+    }
+    
+    func getPrices(of carName: String) -> carPrice{
+        for price in priceArr {
+            if ((price.name == carName.replacingOccurrences(of: ".", with: "")) || (price.name == carName.replacingOccurrences(of: ". ", with: ""))) {
+                return price
+            }
+        }
+        return carPrice()
     }
 }

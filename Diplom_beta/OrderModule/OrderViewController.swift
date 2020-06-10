@@ -87,7 +87,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             make.width.equalToSuperview()
             make.bottom.equalToSuperview()
         }
-        scrollView.backgroundColor = .red
+        scrollView.backgroundColor = .systemBackground
         
         scrollView.addSubview(headerText)
         headerText.snp.makeConstraints{ make in
@@ -96,72 +96,86 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         headerText.text = "Введите данные для создания заявки на аренду"
         headerText.textAlignment = .center
+        headerText.font = UIFont(name: "Georgia", size: 15)
         
         scrollView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints{ make in
             make.top.equalTo(headerText.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(10)
-            make.width.equalTo(150)
+            make.width.equalTo(200)
             make.height.equalTo(20)
         }
         nameLabel.text = "Имя"
         nameLabel.textAlignment = .center
+        nameLabel.font = UIFont(name: "Georgia", size: 20)
+
         
         scrollView.addSubview(nameTextInput)
         nameTextInput.snp.makeConstraints{ make in
             make.top.equalTo(headerText.snp.bottom).offset(20)
-            make.left.equalTo(nameLabel.snp.right).offset(10)
-            make.width.equalTo(200)
+            make.left.equalTo(nameLabel.snp.right).offset(15)
+            make.width.equalTo(150)
             make.height.equalTo(20)
         }
         nameTextInput.backgroundColor = .white
         if (user.user_id != -1) {
             nameTextInput.text = user.user_name
         }
+        nameTextInput.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
+        nameTextInput.layer.borderWidth = 1.0
+        nameTextInput.layer.cornerRadius = 5.0
         
         scrollView.addSubview(surnameLabel)
         surnameLabel.snp.makeConstraints{ make in
             make.top.equalTo(nameLabel.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(10)
-            make.width.equalTo(150)
+            make.width.equalTo(200)
             make.height.equalTo(20)
         }
         surnameLabel.text = "Фамилия"
         surnameLabel.textAlignment = .center
+        surnameLabel.font = UIFont(name: "Georgia", size: 20)
         
         scrollView.addSubview(surnameTextInput)
         surnameTextInput.snp.makeConstraints{ make in
             make.top.equalTo(nameTextInput.snp.bottom).offset(20)
-            make.left.equalTo(surnameLabel.snp.right).offset(10)
-            make.width.equalTo(200)
+            make.left.equalTo(surnameLabel.snp.right).offset(15)
+            make.width.equalTo(150)
             make.height.equalTo(20)
         }
         surnameTextInput.backgroundColor = .white
         if (user.user_id != -1) {
             surnameTextInput.text = user.user_surname
         }
+        surnameTextInput.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
+        surnameTextInput.layer.borderWidth = 1.0
+        surnameTextInput.layer.cornerRadius = 5.0
         
         scrollView.addSubview(phoneLabel)
         phoneLabel.snp.makeConstraints{ make in
             make.top.equalTo(surnameLabel.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(10)
-            make.width.equalTo(150)
+            make.width.equalTo(200)
             make.height.equalTo(20)
         }
         phoneLabel.text = "Номер телефона"
         phoneLabel.textAlignment = .center
+        phoneLabel.font = UIFont(name: "Georgia", size: 20)
         
         scrollView.addSubview(phoneTextInput)
         phoneTextInput.snp.makeConstraints{ make in
             make.top.equalTo(surnameTextInput.snp.bottom).offset(20)
-            make.left.equalTo(phoneLabel.snp.right).offset(10)
-            make.width.equalTo(200)
+            make.left.equalTo(phoneLabel.snp.right).offset(15)
+            make.width.equalTo(150)
             make.height.equalTo(20)
         }
         phoneTextInput.backgroundColor = .white
         if (user.user_id != -1) {
             phoneTextInput.text = user.phone_number
         }
+        phoneTextInput.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
+        phoneTextInput.layer.borderWidth = 1.0
+        phoneTextInput.layer.cornerRadius = 5.0
         /*
          ON EDIT event
          private func formatPhone(_ number: String) -> String {
@@ -194,6 +208,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         carBrandPickerLabel.text = "Марка"
         carBrandPickerLabel.textAlignment = .center
+        carBrandPickerLabel.font = UIFont(name: "Georgia", size: 20)
         
         scrollView.addSubview(carBrandPicker)
         carBrandPicker.snp.makeConstraints{ make in
@@ -208,18 +223,19 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         scrollView.addSubview(carModelPickerLabel)
         carModelPickerLabel.snp.makeConstraints{ make in
-            make.left.equalToSuperview().offset(10)
+            make.centerX.equalToSuperview()
             make.top.equalTo(carBrandPicker.snp.bottom).offset(70)
             make.width.equalTo(150)
             make.height.equalTo(20)
         }
         carModelPickerLabel.text = "Модель"
         carModelPickerLabel.textAlignment = .center
+        carModelPickerLabel.font = UIFont(name: "Georgia", size: 20)
         
         scrollView.addSubview(carModelPicker)
         carModelPicker.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(carModelPickerLabel.snp.bottom).offset(20)
+            make.top.equalTo(carModelPickerLabel.snp.bottom).offset(10)
             make.width.equalTo(550)
             make.height.equalTo(100)
         }
@@ -235,6 +251,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             make.width.equalTo(250)
         }
         checkCarButton.setTitle("Осмотреть машину", for: .normal)
+        checkCarButton.titleLabel?.font = UIFont(name: "Georgia-Bold", size: 20)
         checkCarButton.titleLabel?.textAlignment = .center
         checkCarButton.backgroundColor = .white
         checkCarButton.setTitleColor(.black, for: .normal)
@@ -249,6 +266,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         startDateLabel.text = "Дата начала аренды"
         startDateLabel.textAlignment = .center
+        startDateLabel.font = UIFont(name: "Georgia", size: 20)
         
         scrollView.addSubview(startDatePicker)
         startDatePicker.snp.makeConstraints{ make in
@@ -268,6 +286,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         endDateLabel.text = "Дата окончания аренды"
         endDateLabel.textAlignment = .center
+        endDateLabel.font = UIFont(name: "Georgia", size: 20)
         
         scrollView.addSubview(endDatePicker)
         endDatePicker.snp.makeConstraints{ make in
@@ -286,6 +305,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             make.height.equalTo(20)
         }
         startAddresLabel.text = "Место подачи автомобиля:"
+        startAddresLabel.font = UIFont(name: "Georgia", size: 20)
         
         scrollView.addSubview(startAddresField)
         startAddresField.snp.makeConstraints{ make in
@@ -295,15 +315,21 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             make.height.equalTo(100)
         }
         startAddresField.backgroundColor = .white
+        startAddresField.layer.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1).cgColor
+        startAddresField.layer.borderWidth = 1.0
+        startAddresField.layer.cornerRadius = 5.0
+        startAddresField.contentVerticalAlignment = .top
         
         scrollView.addSubview(priceLabel)
         priceLabel.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
-            make.height.equalTo(20)
+            make.height.equalTo(22)
             make.width.equalTo(300)
             make.top.equalTo(startAddresField.snp.bottom).offset(30)
         }
         priceLabel.text = "Стоимость: "
+        priceLabel.textColor = .black
+        priceLabel.font = UIFont(name: "Georgia", size: 20)
         
         scrollView.addSubview(createOrderButton)
         createOrderButton.snp.makeConstraints{ make in
@@ -314,6 +340,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         createOrderButton.setTitle("Оставить заявку", for: .normal)
         createOrderButton.titleLabel?.textAlignment = .center
+        createOrderButton.titleLabel?.font = UIFont(name: "Georgia-Bold", size: 20)
         createOrderButton.backgroundColor = .white
         createOrderButton.setTitleColor(.black, for: .normal)
         createOrderButton.addTarget(self, action: #selector(self.createButtonClicked(sender:)), for: .touchUpInside)

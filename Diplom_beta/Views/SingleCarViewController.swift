@@ -16,17 +16,16 @@ import Alamofire
 class SingleCarViewController: UIViewController {
     
     let photoView = UIView()
-    let pricesView = UIView()
     
     var photo = UIImageView()
-    
+    var fireBase = FireBaseDataModel()
     let pricesLabel = UILabel()
     let carNameLabel = UILabel()
     let carColorLabel = UILabel()
     let carYearLabel = UILabel()
     let carKaraokeLabel = UILabel()
     let carCapacity = UILabel()
-    
+    var carPrice: carPrice?
     let choseCarButton = UIButton()
     
     var shouldChoseCar: Bool?
@@ -47,6 +46,7 @@ class SingleCarViewController: UIViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = .white
+        carPrice = fireBase.getPrices(of: car!.car_name!)
         prepareView()
     }
     
@@ -85,6 +85,7 @@ class SingleCarViewController: UIViewController {
             make.height.equalTo(20)
         }
         carNameLabel.text = getCorrectNameOf(car: car!.car_name!)
+        carNameLabel.font = UIFont(name: "Georgia", size: 20)
         
         view.addSubview(carCapacity) //количество мест
         carCapacity.snp.makeConstraints{ make in
@@ -94,6 +95,7 @@ class SingleCarViewController: UIViewController {
             make.height.equalTo(20)
         }
         carCapacity.text = "\(getCapacityOf(car: car!.car_name!)) мест"
+        carCapacity.font = UIFont(name: "Georgia", size: 20)
         
         view.addSubview(carColorLabel) // color
         carColorLabel.snp.makeConstraints{ make in
@@ -103,6 +105,7 @@ class SingleCarViewController: UIViewController {
             make.height.equalTo(20)
         }
         carColorLabel.text = "Цвет: \(car!.car_color!)"
+        carColorLabel.font = UIFont(name: "Georgia", size: 20)
         
         view.addSubview(carYearLabel) //year
         carYearLabel.snp.makeConstraints{ make in
@@ -116,6 +119,7 @@ class SingleCarViewController: UIViewController {
         } else {
             carYearLabel.text = "Год: \(car!.car_year!)г."
         }
+        carYearLabel.font = UIFont(name: "Georgia", size: 20)
         
         view.addSubview(carKaraokeLabel) //karaoke
         carKaraokeLabel.snp.makeConstraints{ make in
@@ -129,25 +133,35 @@ class SingleCarViewController: UIViewController {
         } else {
             carKaraokeLabel.text = "Караоке: Есть"
         }
+        carKaraokeLabel.font = UIFont(name: "Georgia", size: 20)
         
-        view.addSubview(pricesView)
-        pricesView.snp.makeConstraints{ make in
+        view.addSubview(pricesLabel)
+        pricesLabel.snp.makeConstraints{ make in
             make.top.equalTo(carKaraokeLabel.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(20)
             make.width.equalTo(500)
             make.height.equalTo(100)
         }
-        pricesView.backgroundColor = .magenta
+        pricesLabel.text = """
+        Цены на прокат авто:
+        Воскресенье - Четверг: \(carPrice!.budn)
+        Пятница: \(carPrice!.frd)
+        Суббота: \(carPrice!.sat)
+        """
+        pricesLabel.lineBreakMode = .byWordWrapping // or NSLineBreakMode.ByWordWrapping
+        pricesLabel.numberOfLines = 0
+        pricesLabel.font = UIFont(name: "Georgia", size: 20)
         
         if shouldChoseCar! {
             view.addSubview(choseCarButton)
             choseCarButton.snp.makeConstraints{ make in
-                make.top.equalTo(pricesView.snp.bottom).offset(10)
+                make.top.equalTo(pricesLabel.snp.bottom).offset(15)
                 make.centerX.equalToSuperview()
                 make.height.equalTo(30)
                 make.width.equalTo(500)
             }
             choseCarButton.setTitle("Выбрать машину", for: .normal)
+            choseCarButton.titleLabel?.font = UIFont(name: "Georgia-Bold", size: 20)
             choseCarButton.titleLabel?.textAlignment = .center
             choseCarButton.backgroundColor = .white
             choseCarButton.setTitleColor(.black, for: .normal)

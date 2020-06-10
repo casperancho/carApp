@@ -53,7 +53,6 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
         collView.dataSource = self
         showCollectionView()
         
-        
     }
     
     func updateDataOf (cars: FilteredCarData) {
@@ -87,11 +86,11 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
             make.center.equalToSuperview()
             make.bottom.equalToSuperview().inset(50)
         }
-        collView.backgroundColor = .red
+        collView.backgroundColor = .white
         flowLayout.scrollDirection = .horizontal
         collView.showsHorizontalScrollIndicator = false
         
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         view.addSubview(label)
         label.snp.makeConstraints{ make in
             make.centerX.equalToSuperview()
@@ -101,7 +100,7 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
         }
         label.text = "1 из \(carD!.selectedBrandCars.count)"
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = .black
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -131,7 +130,7 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
             let indexPath = collView.indexPath(for: cell)
             label.text = "\(indexPath!.section+1) из \(carD!.selectedBrandCars.count)"
             label.textAlignment = .center
-            label.textColor = .white
+            label.textColor = .black
         }
     }
     
@@ -140,7 +139,7 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.size.height/3, height: view.frame.size.height/2)
+        return CGSize(width: view.frame.size.height/3, height: view.frame.size.height/3)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -157,6 +156,7 @@ class CarListCollectionViewController : UIViewController, UITableViewDataSource,
             url = ""
         }
         vc.updatePhoto(url: url)
+        vc.fireBase = fireBase!
         navigationController?.pushViewController(vc, animated: true)
     }
     

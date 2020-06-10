@@ -26,13 +26,22 @@ class BrandLIstTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() { //очень красиво тень
+        brandImageView.layoutSubviews()
+        brandImageView.layer.cornerRadius = 5
+        brandImageView.layer.shadowRadius = 9
+        brandImageView.layer.shadowOpacity = 0.3
+        brandImageView.layer.shadowOffset = CGSize(width: 5, height: 8)
+        
+        brandImageView.clipsToBounds = false
+    }
     
     func prepareCell(){
         addSubview(mainView)
         mainView.snp.makeConstraints{ make in
             make.size.equalToSuperview()
         }
-        mainView.backgroundColor = .red
+        mainView.backgroundColor = .white
         
         mainView.addSubview(brandImageView)
         brandImageView.snp.makeConstraints{ make in
@@ -50,6 +59,7 @@ class BrandLIstTableCell: UITableViewCell {
             make.right.equalToSuperview()
             make.height.equalTo(20)
         }
+        nameLabel.font = UIFont(name: "Georgia-BoldItalic", size: 20)
     }
     
     
