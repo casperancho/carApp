@@ -63,6 +63,7 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         prepareView()
         fireBase.downloadPrices()
         fireBase.downloadPictures()
+        dateChanged(picker: startDatePicker)
         
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -356,8 +357,9 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         case false:
             url = ""
         }
-        navigationController?.pushViewController(vc, animated: true)
         vc.updatePhoto(url: url)
+        vc.fireBase = fireBase
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func createButtonClicked(sender: UIButton!) {

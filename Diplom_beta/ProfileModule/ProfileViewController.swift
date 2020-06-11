@@ -22,16 +22,17 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var fireBase = FireBaseDataModel()
     var ordersTable = UITableView()
     var feedBackButton = UIButton()
+    let contactUs = UILabel()
     
     override func viewDidAppear(_ animated: Bool) {
         let usr = realm.objects(RealmUser.self).first
         if (usr != nil) {
-            view.backgroundColor = .cyan
+            view.backgroundColor = .systemBackground
             print(usr?.user_name)
             user = usr!
             loggedInView()
         } else {
-            view.backgroundColor = .green
+            view.backgroundColor = .systemBackground
             defaultView()
         }
     }
@@ -56,8 +57,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             make.left.equalToSuperview().offset(20)
             make.top.equalTo((navigationController?.navigationBar.snp.bottom)!).offset(20)
             make.width.equalTo(300)
+            make.height.equalTo(50)
         }
         titleLabel.text = "Здравствуйте, \(user.user_name) \(user.user_surname)"
+        titleLabel.textColor = .black
+        titleLabel.font = UIFont(name: "Georgia-Bold", size: 20)
+        titleLabel.lineBreakMode = .byWordWrapping // or NSLineBreakMode.ByWordWrapping
+        titleLabel.numberOfLines = 0
         fireBase.getOrdersOf(user: user.user_id)
         fireBase.tabView = ordersTable
         
@@ -65,9 +71,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         ordersLabel.snp.makeConstraints{ make in
             make.left.equalToSuperview().offset(20)
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
-            make.width.equalTo(150)
+            make.width.equalTo(200)
         }
         ordersLabel.text = "Ваши заказы:"
+        ordersLabel.textColor = .black
+        ordersLabel.font = UIFont(name: "Georgia-Bold", size: 20)
         
         view.addSubview(ordersTable)
         ordersTable.snp.makeConstraints{ make in
@@ -79,16 +87,42 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         view.addSubview(feedBackButton)
         feedBackButton.snp.makeConstraints{ make in
-            make.left.equalToSuperview().offset(20)
+            make.centerX.equalToSuperview()
             make.top.equalTo(ordersTable.snp.bottom).offset(20)
             make.height.equalTo(50)
             make.width.equalTo(300)
         }
         feedBackButton.setTitle("Оставить отзыв", for: .normal)
         feedBackButton.titleLabel?.textAlignment = .center
+        feedBackButton.titleLabel?.textColor = .black
+        feedBackButton.titleLabel?.font = UIFont(name: "Georgia-Bold", size: 20)
         feedBackButton.backgroundColor = .white
         feedBackButton.setTitleColor(.black, for: .normal)
         feedBackButton.addTarget(self, action: #selector(self.feedBackButtonClicked(sender:)), for: .touchUpInside)
+        
+        
+        view.addSubview(contactUs)
+        contactUs.snp.makeConstraints{ make in
+            make.top.equalTo(feedBackButton.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.width.equalTo(400)
+            make.height.equalTo(100)
+        }
+        contactUs.text = "Свяжитесь с нами:+7 968 381 48 65"
+        contactUs.textColor = .black
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(callButton(_:)))
+        contactUs.isUserInteractionEnabled = true
+        contactUs.addGestureRecognizer(tap)
+        contactUs.font = UIFont(name: "Georgia-Bold", size: 20)
+    }
+    
+    @objc func callButton(_ sender: Any) {
+        let phone = "TEL://+79683814865"
+        print(phone)
+        let url: NSURL = NSURL(string: phone)!
+        UIApplication.shared.open(url as URL)
+        
     }
     
     @objc func feedBackButtonClicked(sender: UIButton!) {
@@ -109,7 +143,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { 
         var alertText =
         """
         Автомобиль: \(fireBase.rentOrders[indexPath.row].car_name)\n Даты аренды: \(fireBase.rentOrders[indexPath.row].startDate)-\(fireBase.rentOrders[indexPath.row].endDate) \n Стоимость: \(fireBase.rentOrders[indexPath.row].price)
